@@ -24,15 +24,17 @@
 		getPosition: function(relative){
 			if (relative && $type(relative) == "array") {
 				console.warn('1.1 > 1.2: Element.getPosition no longer accepts an array of overflown elements but rather, optionally, a single element to get relative coordinates.');
+				relative = null;
 			}
-			return getPosition.apply(this, arguments);
+			return getPosition.apply(this, [relative]);
 		},
 
 		getCoordinates: function(relative){
 			if (relative && $type(relative) == "array") {
 				console.warn('1.1 > 1.2: Element.getCoordinates no longer accepts an array of overflown elements but rather, optionally, a single element to get relative coordinates.');
+				relative = null;
 			}
-			return getCoordinates.apply(this, arguments);
+			return getCoordinates.apply(this, [relative]);
 		}
 	
 	});
