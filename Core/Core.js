@@ -7,7 +7,7 @@ var MooCompat = {
 	log: function() {
 		if (console[this.logging]) console[this.logging].apply(console, arguments);
 	},
-	logging: 'error'
+	logging: 'warn'
 };
 
 (function(){
