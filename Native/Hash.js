@@ -27,7 +27,15 @@ Hash.implement({
 
 });
 
-Object.toQueryString = Hash.toQueryString; // TODO
+Object.toQueryString = function(obj){
+	MooCompat.log('1.1 > 1.2: Object.toQueryString() is deprecated. use Hash.toQueryString() instead');
+	$H(obj).each(function(item, key){
+		if ($type(item) == 'object' || $type(item) == 'array'){
+			obj[key] = item.toString();
+		}
+	});
+	return Hash.toQueryString(obj);
+};
 
 var Abstract = function(obj){
 	MooCompat.log('1.1 > 1.2: Abstract is deprecated. Use Hash');

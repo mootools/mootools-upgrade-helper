@@ -32,9 +32,12 @@ if(Browser.hasGetter){ // webkit, gecko, opera support
 		MooCompat.log('1.1 > 1.2: window.webkit is deprecated. Use Browser.Engine.webkit and Browser.Engine.version');
 		return (Browser.Engine.name == 'webkit' && Browser.Engine.version == 420) ? true : false;
 	});
-} else { // no warnings for IE
+	window.__defineGetter__('opera',function(){
+		MooCompat.log('1.1 > 1.2: window.opera is deprecated. Use Browser.Engine.presto');
+		return (Browser.Engine.name == 'presto') ? true : false;
+	});
+} else {
 	window[Browser.Engine.name] = window[Browser.Engine.name + Browser.Engine.version] = true;
-
 	window.ie = window.trident;
 	window.ie6 = window.trident4;
 	window.ie7 = window.trident5;	

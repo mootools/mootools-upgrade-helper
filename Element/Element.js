@@ -73,7 +73,6 @@ window.extend = document.extend = function(properties){
 	for (var property in properties) this[property] = properties[property];
 };
 
-
 Element.Properties.properties = {
 	
 	set: function(props){
@@ -81,16 +80,6 @@ Element.Properties.properties = {
 		$H(props).each(function(value, property){
 			this.set(property, value);
 		}, this);
-	}
-	
-};
-
-
-Element.Properties.styles = {
-	
-	set: function(styles){
-		if ($type(styles) == 'string') this.style.cssText = styles;
-		else this.setStyles(styles);
 	}
 	
 };

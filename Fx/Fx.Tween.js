@@ -3,7 +3,13 @@ Fx.Style = new Class({
 	initialize: function(){
 		MooCompat.log('1.1 > 1.2: Fx.Style is deprecated. use Fx.Tween.');
 		this.parent.apply(this, arguments);
+	},
+	
+	hide: function(){
+		MooCompat.log('1.1 > 1.2: Fx.Style .hide() is deprecated; use Fx.Tween .set(0) instead');
+		return this.set(0);
 	}
+
 });
 
 Element.implement({
@@ -13,4 +19,4 @@ Element.implement({
 		return new Fx.Tween(this, options);
 	}
 
-})
+});

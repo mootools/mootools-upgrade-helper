@@ -1,10 +1,10 @@
 
 JSON.toString = function(obj){ 
-	MooCompat.log('JSON.toString is deprecated. Use JSON.encode');
+	console.warn('1.1 > 1.2: JSON.toString is deprecated. Use JSON.encode');
 	return JSON.encode(obj); 
 }
 JSON.evaluate = function(str){
-	MooCompat.log('JSON.evaluate is deprecated. Use JSON.decode');
+	console.warn('1.1 > 1.2: JSON.evaluate is deprecated. Use JSON.decode');
 	return JSON.decode(str); 
 }
 var Json = JSON;
