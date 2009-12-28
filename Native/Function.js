@@ -1,4 +1,4 @@
-Function.extend({
+Function.implement({
 
 	bindAsEventListener: function(bind, args){
 		MooCompat.log('1.1 > 1.2: Function.bindAsEventListener is deprecated. Use bindWithEvent.');
