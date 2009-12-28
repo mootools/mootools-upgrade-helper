@@ -1,5 +1,5 @@
 Class.empty = function(){ 
-	console.warn('1.1 > 1.2: replace Class.empty with $empty');
+	MooCompat.log('1.1 > 1.2: replace Class.empty with $empty');
 	return $empty;
 };
 

@@ -1,26 +1,25 @@
 JSON.Remote = new Class({
 
-    options: {
-        key: 'json'
-    },
+	options: {
+		key: 'json'
+	},
 
-    Extends: Request.JSON,
+	Extends: Request.JSON,
 
-    initialize: function(url, options){
+	initialize: function(url, options){
 		MooCompat.log('JSON.Remote is deprecated. Use Request.JSON');
-        this.parent(options);
-        this.onComplete = $empty;
-        this.url = url;
-    },
+		this.parent(options);
+		this.onComplete = $empty;
+		this.url = url;
+	},
 
-    send: function(data){
-        if (!this.check(arguments.callee, data)) return this;
-        return this.parent({url: this.url, data: {json: Json.encode(data)}});
-    },
-    
-    failure: function(){
-        this.fireEvent('failure', this.xhr);
-    }
+	send: function(data){
+		if (!this.check(arguments.callee, data)) return this;
+		return this.parent({url: this.url, data: {json: Json.encode(data)}});
+	},
+
+	failure: function(){
+		this.fireEvent('failure', this.xhr);
+	}
 
 });
-

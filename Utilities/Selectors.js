@@ -7,7 +7,7 @@ Native.implement([Element, Document], {
 	},
 
 	getElementsBySelector: function(selector){
-		console.warn('1.1 > 1.2: Element.getElementsBySelector is deprecated. Use getElements()');
+		MooCompat.log('1.1 > 1.2: Element.getElementsBySelector is deprecated. Use getElements()');
 		return this.getElements(selector);
 	}
 

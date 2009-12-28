@@ -1,8 +1,8 @@
 Function.extend({
 
 	bindAsEventListener: function(bind, args){
-		MooCompat.log('Function.bindAsEventListener is deprecated.');
-		return this.create({'bind': bind, 'event': true, 'arguments': args});
+		MooCompat.log('1.1 > 1.2: Function.bindAsEventListener is deprecated. Use bindWithEvent.');
+		return this.bindWithEvent.call(this, bind, args);
 	}
 
 });
