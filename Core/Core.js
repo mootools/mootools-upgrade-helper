@@ -1,11 +1,20 @@
 if(!window.console) var console = {};
-if(!console.log) console.warn = function(){};
+if(!console.log) console.log = function(){};
+if(!console.warn) console.warn = console.log;
+if(!console.error) console.error = console.warn;
+
+var MooCompat = {
+	log: function() {
+		if (console[this.logging]) console[this.logging].apply(console, arguments);
+	},
+	logging: 'error'
+};
 
 (function(){
 	oldA = $A;
 	window.$A = function(iterable, start, length){
 		if (start != undefined && length != undefined) {
-			console.warn('1.1 > 1.2: $A no longer takes start and length arguments.');
+			MooCompat.log('1.1 > 1.2: $A no longer takes start and length arguments.');
 			if (Browser.Engine.trident && $type(iterable) == 'collection'){
 				start = start || 0;
 				if (start < 0) start = iterable.length + start;
@@ -21,33 +30,15 @@ if(!console.log) console.warn = function(){};
 		return oldA(iterable);
 	};
 
-	var natives = [Array, Function, String, RegExp, Number];
+
+	var natives = [Array, Function, String, RegExp, Number, Window, Document, Element, Elements];
+	var strs = ['Array', 'Function', 'String', 'RegExp', 'Number', 'Window', 'Document', 'Element', 'Elements'];
 	for (var i = 0, l = natives.length; i < l; i++) {
 		var extend = natives[i].extend;
+		var type = strs[i];
 		natives[i].extend = function(props){
-			console.warn('1.1 > 1.2: native types no longer use .extend to add methods to prototypes but instead use .implement.');
-			for (var prop in props){
-				if (!this.prototype[prop]) this.prototype[prop] = props[prop];
-			}
+			MooCompat.log('1.1 > 1.2: native types no longer use .extend to add methods to prototypes but instead use .implement. NOTE: YOUR METHODS WERE NOT IMPLEMENTED ON THE NATIVE ' + type.toUpperCase() + ' PROTOTYPE.');
 			return extend.apply(this, arguments);
 		};
 	}
 })();
-
-var $native = function(){
-	for (var i = 0, l = arguments.length; i < l; i++){
-		arguments[i].extend = function(props){
-			console.warn('1.1 > 1.2: native types no longer have an .extend method; use .implement instead.');
-			for (var prop in props){
-				if (!this.prototype[prop]) this.prototype[prop] = props[prop];
-				if (!this[prop]) this[prop] = $native.generic(prop);
-			}
-		};
-	}
-};
-
-$native.generic = function(prop){
-	return function(bind){
-		return this.prototype[prop].apply(bind, Array.prototype.slice.call(arguments, 1));
-	};
-};
