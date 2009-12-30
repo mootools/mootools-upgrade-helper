@@ -1,0 +1,13 @@
+{
+	'Accordion': 'Fx.Accordion',
+	'Ajax': 'Request',
+	'Drag.Base': 'Drag',
+	'Element.Selectors': 'Selectors',
+	'Element.Filters': 'Selectors',
+	'Fx.Style':'Fx.Tween',
+	'Fx.Styles':'Fx.Morph',
+	'Json': 'JSON',
+	'Json.Remote': 'Request.JSON',
+	'SmoothScroll': 'Fx.SmoothScroll',
+	'XHR': 'Request'
+}

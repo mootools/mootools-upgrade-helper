@@ -1,0 +1,10 @@
+{
+	"Core": ["Core", "Browser"],
+	"Native": ["Array", "Function", "Hash"],
+	"Class": ["Class"],
+	"Element": ["Element", "Element.Event", "Element.Style", "Element.Dimensions"],
+	"Fx": ["Fx", "Fx.Tween", "Fx.Morph", "Fx.Scroll"],
+	"Request": ["Request", "Request.JSON"],
+	"Utilities": ["Cookie", "JSON", "Selectors"],
+	"Plugins": ["Tips"]
+}
