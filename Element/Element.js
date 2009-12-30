@@ -68,11 +68,6 @@
 	});
 })();
 
-window.extend = document.extend = function(properties){
-	MooCompat.log('1.1 > 1.2: (window||document).extend is deprecated');
-	for (var property in properties) this[property] = properties[property];
-};
-
 Element.Properties.properties = {
 	
 	set: function(props){
