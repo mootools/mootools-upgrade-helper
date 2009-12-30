@@ -48,6 +48,7 @@ var Ajax = new Class({
 	success: function(text, xml){
 		// This version processes scripts *after* the update element is updated, like Mootools 1.1's Ajax class
 		// Partially from Remote.Ajax.success
+		this.processScripts(text);
 		response = this.response;
 		response.html = text.stripScripts(function(script){
 				response.javascript = script;
@@ -59,3 +60,17 @@ var Ajax = new Class({
 
 });
 
+(function(){
+	var send = Element.prototype.send;
+	Element.implement({
+		send: function(url) {
+			if ($type(url) == "string") return send.apply(this, arguments);
+			if ($type(url) == "object") {
+				MooCompat.log('1.1 > 1.2: Element.send no longer takes an options argument as its object but rather a url. See docs.');
+				this.set('send', url);
+				send.call(this);
+			}
+			return this;
+		}
+	});
+})();
