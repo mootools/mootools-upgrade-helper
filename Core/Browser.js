@@ -1,6 +1,8 @@
-Browser.__defineGetter__('hasGetter',function(){
-	return true;
-});
+if (Browser.__defineGetter__) {
+	Browser.__defineGetter__('hasGetter',function(){
+		return true;
+	});
+}
 
 if(Browser.hasGetter){ // webkit, gecko, opera support
 	
