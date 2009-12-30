@@ -44,68 +44,68 @@ Below are a list of all the changes in 1.1 that you should address in upgrading 
 * *window* no longer has browser information (for example. *window.ie* in 1.1 is determined in 1.2 by the conditional "Browser.Engine.name == 'trident'").
 
 * Array:
-** The *copy* method is deprecated; use the native *splice* method.
-** *remove* from 1.1 is deprecated; use *erase*.
-** *merge* from 1.1 is deprecated; use *combine*.
+  * The *copy* method is deprecated; use the native *splice* method.
+  * *remove* from 1.1 is deprecated; use *erase*.
+  * *merge* from 1.1 is deprecated; use *combine*.
 * Function:
-** The *bindAsEventListener* method is deprecated; use *bindWithEvent*.
-** *Function.empty* is deprecated; use *$empty*.
+  * The *bindAsEventListener* method is deprecated; use *bindWithEvent*.
+  * *Function.empty* is deprecated; use *$empty*.
 * Hash:
-** The *keys* method is now *getKeys*.
-** The *values* method is now *getValues*.
-** The *hasKey* method is now *has*.
-** The *merge* method is now *extend*.
-** The *remove* method is now *erase*.
+  * The *keys* method is now *getKeys*.
+  * The *values* method is now *getValues*.
+  * The *hasKey* method is now *has*.
+  * The *merge* method is now *extend*.
+  * The *remove* method is now *erase*.
 * *Object.toQueryString* is deprecated in favor of *Hash.toQueryString*.
 * The *Abstract* class is deprecated in favor of *Hash*.
 * Element:
-** *getFormElements* is deprecated, use *getElements('input, textarea, select')*.
-** *replaceWith* is deprecated, use *replaces*
-** *remove* is deprecated, use *dispose*
-** *getText* and *setText* are now *get('text')* and *set('text', {text})*
-** *setHTML* is deprecated, use *set('html', {html})*
-** *getTag* is now *get('tag')*
-** *getValue* and *setValue* are now *get('value')* and *set('value', {value})*; also, they no longer do anything but return the value property of an element; getting, for example, the selected radio button from a group of them is not something it does.
-** *toQueryString* is slightly different; inputs without names are excluded, inputs with type == submit, reset, and file are excluded, and inputs with undefined values are excluded.
-** *set* has changed; in 1.1 you could call *element.set({properties: {src: someURL}})* for example; you no longer need that nested *properties* object, just *element.set({src: someURL})*. Additionally, you could set "styles" but this is now "style" (and it must always be an object; 1.1 would accept a cssStyle string).
-** *setOpacity* is deprecated; use *setStyle*
-** the *Event.Keys* object on the *Event* namespaces in 1.1 is now *Event.keys*
-** *getSize* no longer returns values for size, scroll, and scrollSize, but instead just returns x/y values for the dimensions (width/height) of the element.
-** *getPosition* and *getCoordinates* no longer accept an array of overflown elements but rather, optionally, a single element to get relative coordinates.
+  * *getFormElements* is deprecated, use *getElements('input, textarea, select')*.
+  * *replaceWith* is deprecated, use *replaces*
+  * *remove* is deprecated, use *dispose*
+  * *getText* and *setText* are now *get('text')* and *set('text', {text})*
+  * *setHTML* is deprecated, use *set('html', {html})*
+  * *getTag* is now *get('tag')*
+  * *getValue* and *setValue* are now *get('value')* and *set('value', {value})*; also, they no longer do anything but return the value property of an element; getting, for example, the selected radio button from a group of them is not something it does.
+  * *toQueryString* is slightly different; inputs without names are excluded, inputs with type == submit, reset, and file are excluded, and inputs with undefined values are excluded.
+  * *set* has changed; in 1.1 you could call *element.set({properties: {src: someURL}})* for example; you no longer need that nested *properties* object, just *element.set({src: someURL})*. Additionally, you could set "styles" but this is now "style" (and it must always be an object; 1.1 would accept a cssStyle string).
+  * *setOpacity* is deprecated; use *setStyle*
+  * the *Event.Keys* object on the *Event* namespaces in 1.1 is now *Event.keys*
+  * *getSize* no longer returns values for size, scroll, and scrollSize, but instead just returns x/y values for the dimensions (width/height) of the element.
+  * *getPosition* and *getCoordinates* no longer accept an array of overflown elements but rather, optionally, a single element to get relative coordinates.
 * Class:
-** *Class.empty* in 1.1 is just *$empty* in 1.2.
-** *Class.extend* in 1.1 is accomplished by using the *Extends* mutator in 1.2.
-** *Class.implement* in 1.1 is accomplished by using the *Implements* mutator in 1.2.
+  * *Class.empty* in 1.1 is just *$empty* in 1.2.
+  * *Class.extend* in 1.1 is accomplished by using the *Extends* mutator in 1.2.
+  * *Class.implement* in 1.1 is accomplished by using the *Implements* mutator in 1.2.
 * Fx:
-** the *custom* method in 1.1 is now *start*
-** *clearTimer* is now *cancel*
-** *stop* is now *cancel*
-** *Fx.Base* in 1.1 is now just *Fx*
-** *Fx.Style* from 1.1 is now *Fx.Tween* and has a slightly different syntax for its usage
-** *Fx.Styles* from 1.1 is now *Fx.Morph*
-** *Fx.Scroll* no longer has a *scrollTo* method in 1.2; us its *start* method instead
+  * the *custom* method in 1.1 is now *start*
+  * *clearTimer* is now *cancel*
+  * *stop* is now *cancel*
+  * *Fx.Base* in 1.1 is now just *Fx*
+  * *Fx.Style* from 1.1 is now *Fx.Tween* and has a slightly different syntax for its usage
+  * *Fx.Styles* from 1.1 is now *Fx.Morph*
+  * *Fx.Scroll* no longer has a *scrollTo* method in 1.2; us its *start* method instead
 * Request:
-** Both *XHR* and *Ajax* are deprecated; use the new *Request* family of classes. Their syntax is familiar, but not synonymous.
-** *Element.send* no longer takes an options object but rather a url as its only argument.
-** *Json.Remote* id deprecated; use *Request.JSON*.
+  * Both *XHR* and *Ajax* are deprecated; use the new *Request* family of classes. Their syntax is familiar, but not synonymous.
+  * *Element.send* no longer takes an options object but rather a url as its only argument.
+  * *Json.Remote* id deprecated; use *Request.JSON*.
 * Cookie:
-** The *get*, *set*, and *remove* methods from 1.1 are now *read*, *write*, and *dispose*, respectively.
+  * The *get*, *set*, and *remove* methods from 1.1 are now *read*, *write*, and *dispose*, respectively.
 * JSON:
-** The *toString* and *evaluate* methods are deprecated in favor of *encode* and *decode*, respectively.
+  * The *toString* and *evaluate* methods are deprecated in favor of *encode* and *decode*, respectively.
 * Selectors:
-** The element methods *getElementsByClassName* and *getElementsBySelector* are both deprecated in favor of *getElements*.
-** *Elements.filterByTag*, *filterByClass*, *filterById*, and *filterByAttribute* are all deprecated in favor of *filter*.
-** *$E* is deprecated in favor of *document.getElement*. *$ES* is deprecated in favor of *element.getElements*.
+  * The element methods *getElementsByClassName* and *getElementsBySelector* are both deprecated in favor of *getElements*.
+  * *Elements.filterByTag*, *filterByClass*, *filterById*, and *filterByAttribute* are all deprecated in favor of *filter*.
+  * *$E* is deprecated in favor of *document.getElement*. *$ES* is deprecated in favor of *element.getElements*.
 * Tips:
-** Tips are altered such that the DOM structure of the tip elements themselves are different with different class names. This will require you to update your CSS a bit.
-** Tips no longer take an *offsets* option but rather an *offset* option (that does the same thing).
-** Tips no longer parse the *title* attributes of elements, splitting the value on "::" for title/caption but instead use either DOM storage to set them or use the *title* and *rel* tags respectively.
+  * Tips are altered such that the DOM structure of the tip elements themselves are different with different class names. This will require you to update your CSS a bit.
+  * Tips no longer take an *offsets* option but rather an *offset* option (that does the same thing).
+  * Tips no longer parse the *title* attributes of elements, splitting the value on "::" for title/caption but instead use either DOM storage to set them or use the *title* and *rel* tags respectively.
 * Drag:
-** Drag.Move handles droppables differently, firing events on the class rather than the elements.
+  * Drag.Move handles droppables differently, firing events on the class rather than the elements.
 * Accordion:
-** *Accordion* is now *Fx.Accordion*
-** It no longer takes a *container* arguments, and it's *addSection* method no longer injects the added item into the DOM for you.
+  * *Accordion* is now *Fx.Accordion*
+  * It no longer takes a *container* arguments, and it's *addSection* method no longer injects the added item into the DOM for you.
 * SmoothScroll:
-** *SmoothScroll* is now *Fx.SmoothScroll*
+  * *SmoothScroll* is now *Fx.SmoothScroll*
 
 
