@@ -31,14 +31,16 @@ var MooCompat = {
 	};
 
 
-	var natives = [Array, Function, String, RegExp, Number, Window, Document, Element, Elements];
 	var strs = ['Array', 'Function', 'String', 'RegExp', 'Number', 'Window', 'Document', 'Element', 'Elements'];
-	for (var i = 0, l = natives.length; i < l; i++) {
-		var extend = natives[i].extend;
+	for (var i = 0, l = strs.length; i < l; i++) {
 		var type = strs[i];
-		natives[i].extend = function(props){
-			MooCompat.log('1.1 > 1.2: native types no longer use .extend to add methods to prototypes but instead use .implement. NOTE: YOUR METHODS WERE NOT IMPLEMENTED ON THE NATIVE ' + type.toUpperCase() + ' PROTOTYPE.');
-			return extend.apply(this, arguments);
-		};
+		var natv = window[type];
+		if (natv) {
+			var extend = natv.extend;
+			natv.extend = function(props){
+				MooCompat.log('1.1 > 1.2: native types no longer use .extend to add methods to prototypes but instead use .implement. NOTE: YOUR METHODS WERE NOT IMPLEMENTED ON THE NATIVE ' + type.toUpperCase() + ' PROTOTYPE.');
+				return extend.apply(this, arguments);
+			};
+		}
 	}
 })();
