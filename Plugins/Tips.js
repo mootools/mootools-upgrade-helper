@@ -1,4 +1,5 @@
 (function(){
+	if (!window.Tips) return;
 
 	Tips.implement({
 
