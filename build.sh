@@ -1,3 +1,4 @@
+#/usr/bin/env sh
 cat Core/Core.js  > built.js
 cat Core/Browser.js  >> built.js
 cat Native/Array.js  >> built.js
