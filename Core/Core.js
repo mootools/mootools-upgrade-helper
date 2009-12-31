@@ -3,18 +3,15 @@ if(!console.log) console.log = function(){};
 if(!console.warn) console.warn = console.log;
 if(!console.error) console.error = console.warn;
 
-var MooCompat = {
-	log: function() {
-		if (console[this.logging]) console[this.logging].apply(console, arguments);
-	},
-	logging: 'warn'
+MooTools.upgradeLog = function() {
+	if (console[this.upgradeLogLevel]) console[this.upgradeLogLevel].apply(console, arguments);
 };
 
 (function(){
 	oldA = $A;
 	window.$A = function(iterable, start, length){
 		if (start != undefined && length != undefined) {
-			MooCompat.log('1.1 > 1.2: $A no longer takes start and length arguments.');
+			MooTools.upgradeLog('1.1 > 1.2: $A no longer takes start and length arguments.');
 			if (Browser.Engine.trident && $type(iterable) == 'collection'){
 				start = start || 0;
 				if (start < 0) start = iterable.length + start;
@@ -38,7 +35,7 @@ var MooCompat = {
 		if (natv) {
 			var extend = natv.extend;
 			natv.extend = function(props){
-				MooCompat.log('1.1 > 1.2: native types no longer use .extend to add methods to prototypes but instead use .implement. NOTE: YOUR METHODS WERE NOT IMPLEMENTED ON THE NATIVE ' + type.toUpperCase() + ' PROTOTYPE.');
+				MooTools.upgradeLog('1.1 > 1.2: native types no longer use .extend to add methods to prototypes but instead use .implement. NOTE: YOUR METHODS WERE NOT IMPLEMENTED ON THE NATIVE ' + type.toUpperCase() + ' PROTOTYPE.');
 				return extend.apply(this, arguments);
 			};
 		}

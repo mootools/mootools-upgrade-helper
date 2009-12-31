@@ -7,7 +7,7 @@ JSON.Remote = new Class({
 	Extends: Request.JSON,
 
 	initialize: function(url, options){
-		MooCompat.log('JSON.Remote is deprecated. Use Request.JSON');
+		MooTools.upgradeLog('JSON.Remote is deprecated. Use Request.JSON');
 		this.parent(options);
 		this.onComplete = $empty;
 		this.url = url;

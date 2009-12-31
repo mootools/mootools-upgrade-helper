@@ -1,5 +1,5 @@
 Class.empty = function(){ 
-	MooCompat.log('1.1 > 1.2: replace Class.empty with $empty');
+	MooTools.upgradeLog('1.1 > 1.2: replace Class.empty with $empty');
 	return $empty;
 };
 
@@ -15,7 +15,7 @@ Class.empty = function(){
 	};
 
 	Class.prototype.extend = function(properties){
-		MooCompat.log('1.1 > 1.2: Class.extend is deprecated. See the class Extend mutator.');
+		MooTools.upgradeLog('1.1 > 1.2: Class.extend is deprecated. See the class Extend mutator.');
 		var maker = proto(properties);
 		var made = new maker();
 		made.Extends = this;
@@ -25,7 +25,7 @@ Class.empty = function(){
 	var __implement = Class.prototype.implement;
 	Class.prototype.implement = function(){
 		if (arguments.length > 1 && Array.every(arguments, Object.type)){
-			MooCompat.log('1.1 > 1.2: Class.implement no longer takes more than one thing at a time, either MyClass.implement(key, value) or MyClass.implement(object) but NOT MyClass.implement(new Foo, new Bar, new Baz). See also: the class Implements mutator.');
+			MooTools.upgradeLog('1.1 > 1.2: Class.implement no longer takes more than one thing at a time, either MyClass.implement(key, value) or MyClass.implement(object) but NOT MyClass.implement(new Foo, new Bar, new Baz). See also: the class Implements mutator.');
 			Array.each(arguments, function(argument){
 				__implement.call(this, argument);
 			}, this);

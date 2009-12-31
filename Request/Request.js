@@ -7,13 +7,13 @@ var XHR = new Class({
 	},
 
 	initialize: function(options){
-		MooCompat.log('1.1 > 1.2: XHR is deprecated. Use Request.');
+		MooTools.upgradeLog('1.1 > 1.2: XHR is deprecated. Use Request.');
 		this.parent(options);
 		this.transport = this.xhr;
 	},
 
 	request: function(data){
-		MooCompat.log('1.1 > 1.2: XHR.request() is deprecated. Use Request.send() instead.');
+		MooTools.upgradeLog('1.1 > 1.2: XHR.request() is deprecated. Use Request.send() instead.');
 		return this.send(this.url, data || this.options.data);
 	},
 
@@ -40,7 +40,7 @@ var Ajax = new Class({
 	Extends: XHR,
 
 	initialize: function(url, options){
-		MooCompat.log('1.1 > 1.2: Ajax is deprecated. Use Request.');
+		MooTools.upgradeLog('1.1 > 1.2: Ajax is deprecated. Use Request.');
 		this.url = url;
 		this.parent(options);
 	},
@@ -66,7 +66,7 @@ var Ajax = new Class({
 		send: function(url) {
 			if ($type(url) == "string") return send.apply(this, arguments);
 			if ($type(url) == "object") {
-				MooCompat.log('1.1 > 1.2: Element.send no longer takes an options argument as its object but rather a url. See docs.');
+				MooTools.upgradeLog('1.1 > 1.2: Element.send no longer takes an options argument as its object but rather a url. See docs.');
 				this.set('send', url);
 				send.call(this);
 			}

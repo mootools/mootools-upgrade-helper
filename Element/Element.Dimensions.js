@@ -12,7 +12,7 @@
 	Element.implement({
 	
 		getSize: function(){
-			MooCompat.log('1.1 > 1.2: NOTE: getSize is different in 1.2; it no longer returns values for size, scroll, and scrollSize, but instead just returns x/y values for the dimensions of the element.');
+			MooTools.upgradeLog('1.1 > 1.2: NOTE: getSize is different in 1.2; it no longer returns values for size, scroll, and scrollSize, but instead just returns x/y values for the dimensions of the element.');
 			var size = getSize.apply(this, arguments);
 			return $merge(size, {
 				size: size,
@@ -23,7 +23,7 @@
 
 		getPosition: function(relative){
 			if (relative && $type(relative) == "array") {
-				MooCompat.log('1.1 > 1.2: Element.getPosition no longer accepts an array of overflown elements but rather, optionally, a single element to get relative coordinates.');
+				MooTools.upgradeLog('1.1 > 1.2: Element.getPosition no longer accepts an array of overflown elements but rather, optionally, a single element to get relative coordinates.');
 				relative = null;
 			}
 			return getPosition.apply(this, [relative]);
@@ -31,7 +31,7 @@
 
 		getCoordinates: function(relative){
 			if (relative && $type(relative) == "array") {
-				MooCompat.log('1.1 > 1.2: Element.getCoordinates no longer accepts an array of overflown elements but rather, optionally, a single element to get relative coordinates.');
+				MooTools.upgradeLog('1.1 > 1.2: Element.getCoordinates no longer accepts an array of overflown elements but rather, optionally, a single element to get relative coordinates.');
 				relative = null;
 			}
 			return getCoordinates.apply(this, [relative]);
@@ -42,7 +42,7 @@
 	Native.implement([Document, Window], {
 
 		getSize: function(){
-			MooCompat.log('1.1 > 1.2: NOTE: getSize is different in 1.2; it no longer returns values for size, scroll, and scrollSize, but instead just returns x/y values for the dimensions of the element.');
+			MooTools.upgradeLog('1.1 > 1.2: NOTE: getSize is different in 1.2; it no longer returns values for size, scroll, and scrollSize, but instead just returns x/y values for the dimensions of the element.');
 			var size;
 			var win = this.getWindow();
 			var doc = this.getDocument();
