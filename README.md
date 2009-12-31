@@ -33,7 +33,7 @@ Below are the breaking changes between 1.1 and 1.2 that the upgrade helper / com
 
 * *"ILikeCookies".hyphenate()* returns "i-like-cookies" in 1.1; returns "-i-like-cookies" in 1.2.
 * Element positioning is handled differently and more accurately in 1.2 and will likely return slightly different results than in 1.1 in some cases. Typically these differences cancel each other out, as you are passing the positioning values into other MooTools methods to set the position in some fashion. Theoretically, the more accurate and reliable positioning code should improve your results, but if you have code in place to deal with 1.1's deficiencies then you may find yourself with mixed results.
-* In many cases methods that returned *null* now return *false* or vice versa. For example, *Cookie.get* returns *null* in 1.2 and *false* in 1.1 while *Function.attempt* returns *false* in 1.2 but *null* in 1.1.
+* In many cases methods that returned *null* now return *false* or vice versa. For example, *Cookie:get* returns *null* in 1.2 and *false* in 1.1 while *Function:attempt* returns *false* in 1.2 but *null* in 1.1.
 * Both Element.getCoordinates and Element.getPosition no longer take as their only argument an array of overflown (scrolled) elements for computing position but instead take a single element to get position values relative to. This change, in theory, won't affect your code, as the overflown elements your 1.11 code passes in are ignored, and the methods themselves find these overflown parents for you.
 * Native objects (*String*, *Function*, etc) in 1.1 have an *extend* method that allows you to add properties to their prototypes. In 1.2, this method is called *implement* and *extend* does something different. In 1.2, *String.extend*, for example, adds properties to the *String* namespace, but not to all strings (i.e. it does not alter the *String* prototype). The compatibility layer only warns you that your call to extend.
 
@@ -86,12 +86,12 @@ Below are a list of all the changes in 1.1 that you should address in upgrading 
   * *Fx.Style* from 1.1 is now *Fx.Tween* and has a slightly different syntax for its usage
   * *Fx.Styles* from 1.1 is now *Fx.Morph*
   * *Fx.Scroll* no longer has a *scrollTo* method in 1.2; us its *start* method instead
-  * *Element.effect* is now *Element.tween*, but unlike the former, the latter returns the element, starting the effect, while in 1.1 *Element.effect* returned an *Fx* instance to you. This is not a simple search and replace.
-  * Likewise, *Element.effects* is now *Element.morph* but it doesn't return an *Fx* instance but rather runs the effect.
+  * *Element:effect* is now *Element:tween*, but unlike the former, the latter returns the element, starting the effect, while in 1.1 *Element:effect* returned an *Fx* instance to you. This is not a simple search and replace.
+  * Likewise, *Element:effects* is now *Element:morph* but it doesn't return an *Fx* instance but rather runs the effect.
   * You no longer specify the property to alter in the *Fx.Tween* (previously *Fx.Style*) constructor but rather pass it to the *start* and *set* methods along with the values.
 * Request:
   * Both *XHR* and *Ajax* are deprecated; use the new *Request* family of classes. Their syntax is familiar, but not synonymous.
-  * *Element.send* no longer takes an options object but rather a url as its only argument.
+  * *Element:send* no longer takes an options object but rather a url as its only argument.
   * *Json.Remote* id deprecated; use *Request.JSON*.
 * Cookie:
   * The *get*, *set*, and *remove* methods from 1.1 are now *read*, *write*, and *dispose*, respectively.
@@ -99,7 +99,7 @@ Below are a list of all the changes in 1.1 that you should address in upgrading 
   * The *toString* and *evaluate* methods are deprecated in favor of *encode* and *decode*, respectively.
 * Selectors:
   * The element methods *getElementsByClassName* and *getElementsBySelector* are both deprecated in favor of *getElements*.
-  * *Elements.filterByTag*, *filterByClass*, *filterById*, and *filterByAttribute* are all deprecated in favor of *filter*.
+  * *Elements:filterByTag*, *filterByClass*, *filterById*, and *filterByAttribute* are all deprecated in favor of *filter*.
   * *$E* is deprecated in favor of *document.getElement*. *$ES* is deprecated in favor of *element.getElements*.
 * Tips:
   * Tips are altered such that the DOM structure of the tip elements themselves are different with different class names. This will require you to update your CSS a bit.
