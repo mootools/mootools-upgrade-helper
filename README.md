@@ -10,6 +10,8 @@ MooTools provides an upgrade helper that allows code written for 1.1 to run with
 
 To use the script, simply replace MooTools 1.1 with MooTools 1.2, then include the upgrade helper, then include your sites code. Browse your site with a browser that provides a console API (we recommend [Firebug](http://getfirebug.com)) and take note of the warnings thrown. Address these in your code base until you cannot find any more, then remove the upgrade helper.
 
+Included in this repository is a file named "mootools_1.2.js". This file is the contents of all of MooTools Core and the plugins that have moved to MooTools More that were originally in MooTools 1.1 (Drag, Accordion, etc).
+
 ### Upgrade Helper Logging Options
 
 The upgrade helper has three logging options: "error", "warn", and "none".

@@ -3,8 +3,6 @@
 
 //Contents: Core, Browser, Array, Function, Number, String, Hash, Event, Class, Class.Extras, Element, Element.Event, Element.Style, Element.Dimensions, Selectors, DomReady, JSON, Cookie, Swiff, Fx, Fx.CSS, Fx.Tween, Fx.Morph, Fx.Transitions, Request, Request.HTML, Request.JSON, More, Fx.Elements, Fx.Accordion, Fx.Scroll, Fx.Slide, Fx.SmoothScroll, Drag, Drag.Move, Class.Binds, Element.Measure, Slider, Sortables, Color, Group, Hash.Cookie, Scroller, Tips
 
-//This lib: http://www.clientcide.com/js/build.php?requireLibs[]=mootools-core&require[]=Fx.Elements&require[]=Fx.Accordion&require[]=Fx.Scroll&require[]=Fx.Slide&require[]=Fx.SmoothScroll&require[]=Drag&require[]=Drag.Move&require[]=Slider&require[]=Sortables&require[]=Color&require[]=Group&require[]=Hash.Cookie&require[]=Scroller&require[]=Tips&excludeLibs[]=clientcide&compression=none
-
 /*
 ---
 
