@@ -20,9 +20,11 @@ The "error" option uses the *console.error* method which, in Firebug at least, p
 
 The "none" option hides all warnings. This essentially means you are using the upgrade helper as a compatibility script. It is not really recommended.
 
-Set it by assigning "error", "warn", or "none" to *MooTools.upgradeLogLevel*.
+You can change this by just changing the *MooTools.upgradeLogLevel* value, like so:
 
-	MooTools.upgradeLogLevel = 'warn';
+	MooTools.upgradeLogLevel = 'none';
+
+If you include that instruction before you include your site code, all the warnings will be suppressed.
 
 Breaking Changes in MooTools 1.1 > 1.2
 --------------------------------------
