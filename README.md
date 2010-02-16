@@ -87,7 +87,7 @@ Below are a list of all the changes in 1.1 that you should address in upgrading 
   * *Fx.Base* in 1.1 is now just *Fx*
   * *Fx.Style* from 1.1 is now *Fx.Tween* and has a slightly different syntax for its usage
   * *Fx.Styles* from 1.1 is now *Fx.Morph*
-  * *Fx.Scroll* no longer has a *scrollTo* method in 1.2; us its *start* method instead
+  * *Fx.Scroll* no longer has a *scrollTo* method in 1.2; use the *start* method instead
   * *Element:effect* is now *Element:tween*, but unlike the former, the latter returns the element, starting the effect, while in 1.1 *Element:effect* returned an *Fx* instance to you. This is not a simple search and replace.
   * Likewise, *Element:effects* is now *Element:morph* but it doesn't return an *Fx* instance but rather runs the effect.
   * You no longer specify the property to alter in the *Fx.Tween* (previously *Fx.Style*) constructor but rather pass it to the *start* and *set* methods along with the values.
