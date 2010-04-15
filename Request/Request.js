@@ -18,7 +18,7 @@ Request.implement({
 	},
 
 	onFailure: function(){
-		MooTools.upgradeLog('1.1 > 1.2: Note that onComplete does not receive arguments in 1.2.');
+		MooTools.upgradeLog('1.1 > 1.2: Note that onComplete does not receive arguments in 1.2. Also note that onComplete is invoked on BOTH success and failure (while in 1.1 it was only invoked on success). Use the onSuccess event instead if you wish to limit this invocation to success.');
 		this.fireEvent('complete', arguments).fireEvent('failure', this.xhr);
 	}
 

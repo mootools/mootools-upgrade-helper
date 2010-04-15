@@ -38,6 +38,7 @@ Below are the breaking changes between 1.1 and 1.2 that the upgrade helper / com
 * In many cases methods that returned *null* now return *false* or vice versa. For example, *Cookie:get* returns *null* in 1.2 and *false* in 1.1 while *Function:attempt* returns *false* in 1.2 but *null* in 1.1.
 * Both Element.getCoordinates and Element.getPosition no longer take as their only argument an array of overflown (scrolled) elements for computing position but instead take a single element to get position values relative to. This change, in theory, won't affect your code, as the overflown elements your 1.11 code passes in are ignored, and the methods themselves find these overflown parents for you.
 * Native objects (*String*, *Function*, etc) in 1.1 have an *extend* method that allows you to add properties to their prototypes. In 1.2, this method is called *implement* and *extend* does something different. In 1.2, *String.extend*, for example, adds properties to the *String* namespace, but not to all strings (i.e. it does not alter the *String* prototype). The compatibility layer only warns you that your call to extend.
+* *Request* (aka *Ajax* in 1.1) calls its *onComplete* method on both failure and success, passing no arguments to it. In 1.1, the Ajax class called *onComplete* only on success (making the *onComplete* and *onSuccess* events synonymous... and therefore redundant). If you were using *onComplete* in 1.1 expecting it not to be called on failure your method is going to get called unexpectedly.
 
 Changes in MooTools 1.1 > 1.2
 -----------------------------
@@ -95,6 +96,7 @@ Below are a list of all the changes in 1.1 that you should address in upgrading 
   * Both *XHR* and *Ajax* are deprecated; use the new *Request* family of classes. Their syntax is familiar, but not synonymous.
   * *Element:send* no longer takes an options object but rather a url as its only argument.
   * *Json.Remote* id deprecated; use *Request.JSON*.
+  * *onComplete* does not receive any arguments. It is also invoked after both failure and success, where as in 1.1 it was only invoked on success.
 * Cookie:
   * The *get*, *set*, and *remove* methods from 1.1 are now *read*, *write*, and *dispose*, respectively.
 * JSON:
