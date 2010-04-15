@@ -1,3 +1,29 @@
+Request.implement({
+	//1.11 passed along the response text and xml to onComplete
+	onStateChange: function(){
+		if (this.xhr.readyState != 4 || !this.running) return;
+		this.running = false;
+		this.status = 0;
+		$try(function(){
+			this.status = this.xhr.status;
+		}.bind(this));
+		this.xhr.onreadystatechange = $empty;
+		this.response = {text: this.xhr.responseText, xml: this.xhr.responseXML};
+		if (this.options.isSuccess.call(this, this.status)) this.success(this.response.text, this.response.xml);
+		else this.failure(this.response.text, this.response.xml);
+	},
+	
+	failure: function(){
+		this.onFailure.apply(this, arguments);
+	},
+
+	onFailure: function(){
+		MooTools.upgradeLog('1.1 > 1.2: Note that onComplete does not receive arguments in 1.2.');
+		this.fireEvent('complete', arguments).fireEvent('failure', this.xhr);
+	}
+
+});
+
 var XHR = new Class({
 
 	Extends: Request,
