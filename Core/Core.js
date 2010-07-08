@@ -44,5 +44,5 @@ MooTools.upgradeLog = function() {
 
 window.onDomReady = Window.onDomReady = function(fn){
 	MooTools.upgradeLog('1.1 > 1.2: window.onDomReady is no longer supported. Use window.addEvent("domready") instead');
-	return this.addEvent('domready', fn);
+	return window.addEvent('domready', fn);
 };
