@@ -51,7 +51,7 @@
 			switch(this.getTag()){
 				case 'select':
 					var values = [];
-					$each(this.options, function(option){
+					$each($$(this.options), function(option){
 						if (option.selected) values.push($pick(option.value, option.text));
 					});
 					return (this.multiple) ? values : values[0];
